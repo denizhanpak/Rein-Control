@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Agent : MonoBehaviour
 {
+    public int seed = 42;
     public int sensorCount;
     public GameObject beak;
     public GameObject sensorModel;
@@ -14,6 +15,7 @@ public class Agent : MonoBehaviour
     void Start()
     {
         sensors = new Sensor [sensorCount];
+        Random.InitState(seed);
         MakeSensors();
     }
 
@@ -26,7 +28,7 @@ public class Agent : MonoBehaviour
     {
         for (int i = 0; i < sensors.Length; i++)
         {
-            sensors[i] = Instantiate(sensorModel, new Vector3(0f,0.7f,0.9f),Quaternion.Euler(90f,0f,0f), transform).GetComponent<Sensor>();
+            sensors[i] = Instantiate(sensorModel, new Vector3(0f,0.7f,1f),Quaternion.Euler(90f,0f,0f), transform).GetComponent<Sensor>();
             sensors[i].SetHeading(beak);
             sensors[i].SetTarget(target);
             sensors[i].SetHinge(GetComponent<Rigidbody>());

@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5018041530764788982}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.6999999, z: 0.050000004}
+  m_LocalScale: {x: 0.05, y: 0.5, z: 0.050000004}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,7 +53,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5018041530764788982}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -97,7 +97,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 5018041530764788982}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -110,7 +110,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5018041530764788982}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
@@ -127,7 +127,7 @@ HingeJoint:
   m_GameObject: {fileID: 5018041530764788982}
   m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: -1, z: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
@@ -139,7 +139,7 @@ HingeJoint:
   m_UseMotor: 0
   m_Motor:
     targetVelocity: 0
-    force: 0
+    force: 1
     freeSpin: 0
   m_UseLimits: 0
   m_Limits:
@@ -151,7 +151,7 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
+  m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
 --- !u!145 &5018041530255822481
@@ -163,7 +163,7 @@ SpringJoint:
   m_GameObject: {fileID: 5018041530764788982}
   m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Anchor: {x: 0, y: 0, z: -2}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: -0.00000059604645, z: 0.8000001}
   serializedVersion: 2
@@ -171,11 +171,11 @@ SpringJoint:
   m_Damper: 0.2
   m_MinDistance: 0
   m_MaxDistance: 0
-  m_Tolerance: 0.025
+  m_Tolerance: 1.00000005e-20
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
+  m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
 --- !u!114 &-597689621340817788
@@ -190,6 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb16fbe3eb3c3e7ea5c91067e6ad0b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxK: 10
+  maxK: 1
   receptiveField: 30
-  maxResponse: 15
+  maxResponse: 0.1
+  senseFrequency: 7
+  maxPush: 0
